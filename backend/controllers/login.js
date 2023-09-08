@@ -12,6 +12,7 @@ const validationRules = [
 
 LoginRouter.post('/', validationRules, async (req, res) => {
     const errors = validationResult(req)
+
     if(!errors.isEmpty()){
         return res.status(400).json({
             errors: errors.array()
@@ -20,7 +21,7 @@ LoginRouter.post('/', validationRules, async (req, res) => {
 
     const { username, password } = req.body
 
-    const user = await User.findOne({ username })
+    const user = await User.findOne({ username }).populate('friends')
     const userExists = user === null
         ? false
         : await bcrypt.compare(password, user.passwordHash)
@@ -42,7 +43,15 @@ LoginRouter.post('/', validationRules, async (req, res) => {
         { expiresIn: 60*60 }
     )
 
-    res.status(200).send({ token, username, name: `${user.first_name} ${user.last_name}` })
+
+    res.status(200).send({ 
+        token, 
+        username, 
+        name: `${user.first_name} ${user.last_name}`, 
+        friends: user.friends, 
+        first_name: user.first_name, 
+        last_name: user.last_name 
+    })
 }) 
 
 module.exports = LoginRouter

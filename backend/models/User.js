@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     first_name: {
         type: String,
         required: true,
@@ -15,9 +15,19 @@ const userSchema = new mongoose.Schema({
     },
     dob: Date,
     passwordHash: String,
+    balance: {
+        type: Number,
+        default: 5000
+    },
+    friends: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 })
 
-userSchema.set('toJSON', {
+UserSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString()
         delete returnedObject._id
@@ -27,6 +37,6 @@ userSchema.set('toJSON', {
     }
 })
 
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model('User', UserSchema)
 
 module.exports = User
