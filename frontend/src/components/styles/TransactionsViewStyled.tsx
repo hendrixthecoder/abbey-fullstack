@@ -30,4 +30,6 @@ export const TransactionStyles = styled.div`
         color: black;
 
     }
+
+    padding: 20px;
 `

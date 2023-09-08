@@ -53,8 +53,9 @@ const Transactions = () => {
   }, [user, navigate]);
 
   return (
+    <>
+    <NavBar/>
     <TransactionStyles>
-      <NavBar/>
       <h4>Transactions</h4>
       {isLoading ? (
         <div>Fetching transactions...</div>
@@ -81,6 +82,7 @@ const Transactions = () => {
         <div>No transaction records found</div>
       )}
     </TransactionStyles>
+    </>
   );
 };
 

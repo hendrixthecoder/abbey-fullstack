@@ -9,7 +9,8 @@ import UserContext from '../context/UserContext'
 
 
 const LoginForm = () => {
-  const [user, setUser] = useContext(UserContext)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setUser] = useContext(UserContext)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const isLoggedIn = localStorage.getItem('user')

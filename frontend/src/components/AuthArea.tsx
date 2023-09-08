@@ -15,12 +15,14 @@ const AuthArea = () => {
   }
   
   return (
-    <AuthViewStyles>
+    <>
       <NavBar />
-      <h1>Welcome {user.name}!</h1>
-      <Balance />
-      <NewTransfer />
-    </AuthViewStyles>
+      <AuthViewStyles>
+        <h1>Welcome {user.name}!</h1>
+        <Balance />
+        <NewTransfer />
+      </AuthViewStyles>
+    </>
   )
 }
 

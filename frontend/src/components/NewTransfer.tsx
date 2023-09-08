@@ -3,6 +3,7 @@ import { createNewTransaction } from "../services/transactions"
 import UserContext from "../context/UserContext"
 import { AxiosError } from "axios"
 import { useNavigate } from "react-router-dom"
+import { NewTransferStyles } from "./styles/NewTransferStyles"
 
 
 type UserProps = {
@@ -53,7 +54,7 @@ const NewTransfer = () => {
   }
 
   return (
-    <section>
+    <NewTransferStyles>
       <h4>New Transfer</h4>
       <form onSubmit={handleSubmit}>
         <div>
@@ -80,7 +81,7 @@ const NewTransfer = () => {
         </div>
         <button>Send</button>
       </form>
-    </section>
+    </NewTransferStyles>
   )
 }
 

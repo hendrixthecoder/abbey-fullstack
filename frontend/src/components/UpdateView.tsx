@@ -18,7 +18,6 @@ const UpdateView = () => {
     return <Navigate to='/login'/>
   }
 
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const formData = { first_name, last_name, password }
@@ -35,8 +34,9 @@ const UpdateView = () => {
   };
 
   return (
-    <UpdateViewStyle>
+    <>
       <NavBar/>
+      <UpdateViewStyle>
       <h3>Update Info</h3>
       <form onSubmit={handleSubmit}>
         <div>
@@ -69,6 +69,7 @@ const UpdateView = () => {
         <button>Submit</button>
       </form>
     </UpdateViewStyle>
+    </>
   );
 };
 

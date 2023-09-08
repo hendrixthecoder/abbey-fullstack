@@ -23,6 +23,7 @@ mongoose.connect(MONGODB_URI)
 app.use(middleware.requestLogger)
 app.use(cors())
 app.use(express.json())
+app.use(express.static('dist'))
 
 //Routes
 app.use('/api/login', LoginRouter)

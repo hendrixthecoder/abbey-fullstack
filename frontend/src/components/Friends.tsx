@@ -42,8 +42,9 @@ const Friends = () => {
   
   
   return (
-    <FriendsStyle>
+    <>
       <NavBar/>
+    <FriendsStyle>
         <h4>Friends</h4>
         {
           isLoading 
@@ -59,6 +60,7 @@ const Friends = () => {
             )
         }
     </FriendsStyle>
+    </>
   )
 }
 
