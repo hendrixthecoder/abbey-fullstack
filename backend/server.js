@@ -5,6 +5,6 @@ const logger = require('./utils/logger')
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
-app.listen(PORT, () => {
+app.listen(PORT || 5000, () => {
     logger.info(`🚀 - Server running at PORT: ${PORT}`)
 })

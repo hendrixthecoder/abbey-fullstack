@@ -33,11 +33,11 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Routes>
+          <Route path='/login' element={<LoginForm />} />
           <Route path='/' element={<AuthArea />} />
           <Route path='/transactions' element={<Transactions />} />
           <Route path='/friends' element={<Friends />} />
           <Route path='/update-profile' element={<UpdateView />} />
-          <Route path='/login' element={<LoginForm />} />
         </Routes>
       </ThemeProvider>
     </>
